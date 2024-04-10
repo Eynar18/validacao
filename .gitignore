@@ -1,8 +1,7 @@
-server/target/
-server/!.mvn/wrapper/maven-wrapper.jar
-server/!**/src/main/**/target/
-server/!**/src/test/**/target/
-server/.mvn
+/server/target/
+/server/!.mvn/wrapper/maven-wrapper.jar
+/server/!**/src/main/**/target/
+/server/!**/src/test/**/target/
 
 ### STS ###
 .apt_generated
@@ -30,5 +29,6 @@ build/
 !**/src/test/**/build/
 
 ### VS Code ###
-client/.vscode
-client/node_modules
+/client/.vscode
+/client/node_modules
+/server/.mvn/
