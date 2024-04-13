@@ -20,7 +20,7 @@ import java.util.UUID;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table
+@Table(name = "task")
 public class TaskEntity {
 
     @Id

@@ -16,7 +16,7 @@ import java.util.UUID;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(uniqueConstraints = @UniqueConstraint(columnNames = "username"))
+@Table(name = "account", uniqueConstraints = @UniqueConstraint(columnNames = "username"))
 public class AccountEntity {
 
     @Id
@@ -26,7 +26,7 @@ public class AccountEntity {
 
     @NotBlank
     @Size(max = 16)
-    @Column(unique = true, nullable = false)
+    @Column(unique = true, nullable = false, length = 16)
     private String username;
 
     @NotBlank
