@@ -16,7 +16,7 @@ import java.util.UUID;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "account", uniqueConstraints = @UniqueConstraint(columnNames = "username"))
+@Table(name = "account", uniqueConstraints = @UniqueConstraint(columnNames = "username", name = "account_username_ukey"))
 public class AccountEntity {
 
     @Id

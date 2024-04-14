@@ -30,3 +30,4 @@ build/
 ### VS Code ###
 /client/.vscode
 /client/node_modules
+/client/.angular

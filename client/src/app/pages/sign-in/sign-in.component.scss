@@ -1,0 +1,42 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f4f4f4;
+}
+
+.login-card {
+  width: 350px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 20px;
+}
+
+mat-card-header {
+  padding-bottom: 20px;
+}
+
+mat-form-field {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+button {
+  width: 100%;
+  height: 48px;
+  margin-bottom: 8px;
+}
+
+mat-card-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.eye-button {
+  color: rgba(0, 0, 0, 0.54);
+}
+
+.eye-button.hide {
+  color: rgba(0, 0, 0, 0.38);
+}
+

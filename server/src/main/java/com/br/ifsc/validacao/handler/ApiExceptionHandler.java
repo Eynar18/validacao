@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.converter.HttpMessageNotReadableException;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -23,6 +24,12 @@ public class ApiExceptionHandler {
     @ResponseStatus(value = HttpStatus.BAD_REQUEST)
     public ApiExceptionResponse handleUnreadableException(HttpMessageNotReadableException ex, HttpServletRequest req) {
         return new ApiExceptionResponse(HttpStatus.BAD_REQUEST, "JSON parse error", req.getServletPath());
+    }
+
+    @ExceptionHandler(BadCredentialsException.class)
+    @ResponseStatus(value = HttpStatus.BAD_REQUEST)
+    public ApiExceptionResponse handleBadCredentialsException(BadCredentialsException ex, HttpServletRequest req) {
+        return new ApiExceptionResponse(HttpStatus.BAD_REQUEST, "Credentials are invalid", req.getServletPath());
     }
 
     @ExceptionHandler(ApiGenericException.class)

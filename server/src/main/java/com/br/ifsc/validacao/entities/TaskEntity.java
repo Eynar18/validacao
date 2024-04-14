@@ -39,7 +39,9 @@ public class TaskEntity {
     private LocalDate deadline;
 
     @NotNull
-    @Enumerated(EnumType.STRING)
+    @Column
+    @Enumerated(EnumType.ORDINAL)
+    @Convert(converter = TaskPriority.TaskPriorityConverter.class)
     private TaskPriority priority;
 
     @CreationTimestamp
