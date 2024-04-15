@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {AuthService} from "./core/auth.service";
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,12 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'client';
+  title = 'Task Application';
+
+  constructor(private authService: AuthService) {}
+
+  isLoggedIn() {
+    return this.authService.isLoggedIn();
+  }
+
 }

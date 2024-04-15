@@ -3,8 +3,6 @@ import {HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest}
 import {catchError, Observable} from "rxjs";
 import {AuthService} from "./auth.service";
 import {ToastrService} from "ngx-toastr";
-import {MatSnackBar} from "@angular/material/snack-bar";
-import {ErrorSnackBarComponent} from "../shared/components/error-snack-bar/error-snack-bar.component";
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
@@ -12,7 +10,6 @@ export class AuthInterceptor implements HttpInterceptor {
   constructor(
     private authService: AuthService,
     private toastr: ToastrService,
-    private snackBar: MatSnackBar
   ) {}
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
@@ -32,7 +29,6 @@ export class AuthInterceptor implements HttpInterceptor {
   protected handleRequest(next: HttpHandler, request: HttpRequest<any>) {
     return next.handle(request).pipe(
       catchError((error: HttpErrorResponse) => {
-        console.log(error);
         let errorMessage: string;
         if (error.error) {
           errorMessage = `${error.error.message}!`;
@@ -40,12 +36,7 @@ export class AuthInterceptor implements HttpInterceptor {
           errorMessage = `${error.message}!`;
         }
 
-        this.snackBar.open(errorMessage,'Close', {
-          duration: 3000,
-          horizontalPosition: 'right',
-          verticalPosition: 'top',
-          panelClass: ['custom-style']
-        });
+        this.toastr.error(errorMessage, 'Error');
 
         throw new Error(errorMessage);
       })

@@ -8,21 +8,37 @@ import {AuthInterceptor} from "./core/auth.interceptor";
 import {ToastrModule} from "ngx-toastr";
 import {SignInComponent} from './pages/sign-in/sign-in.component';
 import {provideAnimationsAsync} from '@angular/platform-browser/animations/async';
-import {MatInputModule} from "@angular/material/input";
+import {MatError, MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
-import {MatCardModule} from "@angular/material/card";
-import {ReactiveFormsModule} from "@angular/forms";
+import {MatCardActions, MatCardModule} from "@angular/material/card";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatIcon} from "@angular/material/icon";
-import {MatSnackBarModule} from "@angular/material/snack-bar";
-import { SuccessSnackBarComponent } from './shared/components/success-snack-bar/success-snack-bar.component';
-import { ErrorSnackBarComponent } from './shared/components/error-snack-bar/error-snack-bar.component';
+import {SignUpComponent} from './pages/sign-up/sign-up.component';
+import {TaskComponent} from './pages/task/task.component';
+import {NavBarComponent} from './core/nav-bar/nav-bar.component';
+import {MatToolbarModule} from "@angular/material/toolbar";
+import {MatMenuModule} from "@angular/material/menu";
+import {AgGridModule} from "ag-grid-angular";
+import {MatTableModule} from "@angular/material/table";
+import {MatDialogActions, MatDialogClose, MatDialogContent, MatDialogTitle} from "@angular/material/dialog";
+import {
+  MatDatepicker,
+  MatDatepickerInput,
+  MatDatepickerModule,
+  MatDatepickerToggle
+} from "@angular/material/datepicker";
+import {MatOption, MatSelect} from "@angular/material/select";
+import {MatNativeDateModule} from "@angular/material/core";
+import {TaskFormComponent} from './components/task-form/task-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SignInComponent,
-    SuccessSnackBarComponent,
-    ErrorSnackBarComponent
+    SignUpComponent,
+    TaskComponent,
+    NavBarComponent,
+    TaskFormComponent,
   ],
   imports: [
     HttpClientModule,
@@ -32,12 +48,29 @@ import { ErrorSnackBarComponent } from './shared/components/error-snack-bar/erro
     MatButtonModule,
     MatCardModule,
     MatIcon,
-    MatSnackBarModule,
+    MatToolbarModule,
+    MatMenuModule,
     ReactiveFormsModule,
+    MatTableModule,
+    AgGridModule,
+    MatDialogTitle,
+    MatDialogContent,
+    MatDialogActions,
+    FormsModule,
+    MatDialogClose,
+    MatDatepickerToggle,
+    MatSelect,
+    MatOption,
+    MatDatepicker,
+    MatDatepickerInput,
+    MatNativeDateModule,
+    MatDatepickerModule,
+    MatCardActions,
+    MatError,
     ToastrModule.forRoot({
       timeOut: 3000,
       preventDuplicates: true,
-    })
+    }),
   ],
   providers: [
     {
@@ -45,7 +78,7 @@ import { ErrorSnackBarComponent } from './shared/components/error-snack-bar/erro
       useClass: AuthInterceptor,
       multi: true
     },
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
   ],
   bootstrap: [AppComponent]
 })

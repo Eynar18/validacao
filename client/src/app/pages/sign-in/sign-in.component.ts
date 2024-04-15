@@ -13,7 +13,7 @@ export class SignInComponent implements OnInit {
   hide = true;
 
   ngOnInit(): void {
-
+    this.checkIfAuthenticated();
     this.buildLoginForm()
   }
 
@@ -42,13 +42,11 @@ export class SignInComponent implements OnInit {
       this.authService.authenticate(this.loginForm.value).subscribe((response) => {
         if (response.token) {
           this.authService.storeToken(response.token);
+          this.authService.setUserName(this.loginForm.get('username')?.value)
+          this.router.navigate(['/task']);
         }
       });
     }
-  }
-
-  signUp(): void {
-    this.router.navigate(['/sign-up']);
   }
 
   togglePasswordVisibility(): void {

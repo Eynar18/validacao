@@ -1,0 +1,53 @@
+mat-toolbar {
+  background: rgb(22, 52, 67);
+  color: white;
+}
+
+.app-title {
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+}
+
+.app-title mat-icon {
+  margin-right: 8px;
+}
+
+.user-name {
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+}
+
+.user-name mat-icon {
+  margin-right: 5px;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.mat-menu-content {
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+}
+
+mat-menu-item {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
+
+mat-menu-item mat-icon {
+  margin-right: 8px;
+}
+
+.app-title {
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.app-title:hover {
+  transform: scale(1.06);
+}

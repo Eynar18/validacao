@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ErrorSnackBarComponent } from './error-snack-bar.component';
+import { NavBarComponent } from './nav-bar.component';
 
-describe('ErrorSnackBarComponent', () => {
-  let component: ErrorSnackBarComponent;
-  let fixture: ComponentFixture<ErrorSnackBarComponent>;
+describe('NavBarComponent', () => {
+  let component: NavBarComponent;
+  let fixture: ComponentFixture<NavBarComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ErrorSnackBarComponent]
+      declarations: [NavBarComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(ErrorSnackBarComponent);
+    fixture = TestBed.createComponent(NavBarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
