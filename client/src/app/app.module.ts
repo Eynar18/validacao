@@ -30,6 +30,9 @@ import {
 import {MatOption, MatSelect} from "@angular/material/select";
 import {MatNativeDateModule} from "@angular/material/core";
 import {TaskFormComponent} from './components/task-form/task-form.component';
+import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
+import {MatTooltip} from "@angular/material/tooltip";
+import { HasPassedPipe } from './shared/pipes/has-passed.pipe';
 
 @NgModule({
   declarations: [
@@ -39,6 +42,8 @@ import {TaskFormComponent} from './components/task-form/task-form.component';
     TaskComponent,
     NavBarComponent,
     TaskFormComponent,
+    ConfirmDialogComponent,
+    HasPassedPipe,
   ],
   imports: [
     HttpClientModule,
@@ -71,6 +76,7 @@ import {TaskFormComponent} from './components/task-form/task-form.component';
       timeOut: 3000,
       preventDuplicates: true,
     }),
+    MatTooltip,
   ],
   providers: [
     {

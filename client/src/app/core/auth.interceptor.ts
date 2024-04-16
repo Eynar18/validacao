@@ -3,6 +3,7 @@ import {HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest}
 import {catchError, Observable} from "rxjs";
 import {AuthService} from "./auth.service";
 import {ToastrService} from "ngx-toastr";
+import {Router} from "@angular/router";
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
@@ -10,6 +11,7 @@ export class AuthInterceptor implements HttpInterceptor {
   constructor(
     private authService: AuthService,
     private toastr: ToastrService,
+    private router: Router
   ) {}
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
@@ -30,6 +32,13 @@ export class AuthInterceptor implements HttpInterceptor {
     return next.handle(request).pipe(
       catchError((error: HttpErrorResponse) => {
         let errorMessage: string;
+
+        if (error.status === 403) {
+          this.toastr.error('Session expired', 'Error');
+          this.router.navigate(['/sign-in']);
+          throw new Error();
+        }
+
         if (error.error) {
           errorMessage = `${error.error.message}!`;
         } else {

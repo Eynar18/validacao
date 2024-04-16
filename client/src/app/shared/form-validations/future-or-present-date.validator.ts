@@ -7,9 +7,9 @@ export function futureOrPresentDateValidator(): ValidatorFn {
     }
 
     const today = new Date();
-    today.setHours(0, 0, 0, 0); // remove time part
+    today.setHours(0, 0, 0, 0);
     const dateToCheck = new Date(control.value);
 
-    return dateToCheck >= today ? null : { futureOrPresentDate: 'Only present or future dates are allowed' };
+    return dateToCheck >= today ? null : { futureOrPresentDate: 'Please enter a present or future date' };
   };
 }

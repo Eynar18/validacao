@@ -9,10 +9,9 @@
     <mat-form-field appearance="fill">
       <mat-label>Priority</mat-label>
       <mat-select formControlName="priority">
-        <mat-option value="URGENT">Urgent</mat-option>
-        <mat-option value="HIGH">High</mat-option>
-        <mat-option value="MEDIUM">Medium</mat-option>
-        <mat-option value="LOW">Low</mat-option>
+        <mat-option *ngFor="let priority of priorityOptions" [value]="priority">
+          {{ getPriorityLabel(priority) }}
+        </mat-option>
       </mat-select>
     </mat-form-field>
 

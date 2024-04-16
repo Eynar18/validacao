@@ -7,11 +7,11 @@
       <form [formGroup]="loginForm" (ngSubmit)="login()">
         <mat-form-field appearance="fill">
           <mat-label>Username</mat-label>
-          <input matInput formControlName="username">
+          <input matInput formControlName="username" autocomplete="username">
         </mat-form-field>
         <mat-form-field appearance="fill">
           <mat-label>Password</mat-label>
-          <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+          <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" autocomplete="password">
           <button mat-icon-button matSuffix (click)="togglePasswordVisibility()"
                   [attr.aria-label]="'Toggle password visibility'" [type]="'button'"
                   [ngClass]="{'eye-button': true, 'hide': hide}">

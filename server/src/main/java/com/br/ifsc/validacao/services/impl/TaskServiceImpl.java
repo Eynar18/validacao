@@ -42,7 +42,7 @@ public class TaskServiceImpl implements TaskService {
 
     @Override
     public List<TaskDto> list() {
-        List<TaskEntity> tasks = taskRepository.findAll();
+        List<TaskEntity> tasks = taskRepository.findAllOrderByPriority();
         return tasks.stream()
                 .map(task -> modelMapper.map(task, TaskDto.class))
                 .collect(Collectors.toList());

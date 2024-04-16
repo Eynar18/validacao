@@ -8,8 +8,6 @@ export const authGuard: CanActivateFn = (
 ) => {
   const authService = inject(AuthService);
   const router = inject(Router);
-  console.log('Route => ', route);
-  console.log('State => ', state);
 
   if (authService.isLoggedIn()) {
     if (state.url.includes('sign-in')) {
